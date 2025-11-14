@@ -87,7 +87,7 @@ Check:
 
 For automated publishing on git tags:
 
-1. Go to: https://github.com/MarkShawn2020/copy-path-with-line-number/settings/secrets/actions
+1. Go to: https://github.com/MarkShawn2020/better-copy-path-with-lines/settings/secrets/actions
 2. Click "New repository secret"
 3. Name: `VSCE_PAT`
 4. Value: Your Personal Access Token

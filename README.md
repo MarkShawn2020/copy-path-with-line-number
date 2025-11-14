@@ -3,7 +3,7 @@
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/MarkShawn2020.better-copy-path-with-lines?style=flat&label=VS%20Code%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
 [![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/MarkShawn2020.better-copy-path-with-lines?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
 [![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/MarkShawn2020.better-copy-path-with-lines?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
-[![GitHub](https://img.shields.io/github/license/MarkShawn2020/copy-path-with-line-number?style=flat)](https://github.com/MarkShawn2020/copy-path-with-line-number/blob/main/LICENSE.md)
+[![GitHub](https://img.shields.io/github/license/MarkShawn2020/better-copy-path-with-lines?style=flat)](https://github.com/MarkShawn2020/better-copy-path-with-lines/blob/main/LICENSE.md)
 
 > 🚀 VSCode extension for copying file paths with line numbers | [中文文档](./README_ZH.md)
 
@@ -84,14 +84,14 @@ code --install-extension MarkShawn2020.better-copy-path-with-lines
 
 ### From GitHub Release
 
-1. Download the latest `.vsix` from [Releases](https://github.com/MarkShawn2020/copy-path-with-line-number/releases)
+1. Download the latest `.vsix` from [Releases](https://github.com/MarkShawn2020/better-copy-path-with-lines/releases)
 2. In VSCode: `Extensions` → `...` → `Install from VSIX`
 
 ### From Source
 
 ```bash
-git clone https://github.com/MarkShawn2020/copy-path-with-line-number.git
-cd copy-path-with-line-number
+git clone https://github.com/MarkShawn2020/better-copy-path-with-lines.git
+cd better-copy-path-with-lines
 npm install
 npm run compile
 # Press F5 to launch Extension Development Host
@@ -174,7 +174,7 @@ For a complete feature list of the original extension, see the [original reposit
 
 ## 🐛 Known Issues
 
-None currently. Report issues at: https://github.com/MarkShawn2020/copy-path-with-line-number/issues
+None currently. Report issues at: https://github.com/MarkShawn2020/better-copy-path-with-lines/issues
 
 ## 🤝 Contributing
 

@@ -3,7 +3,7 @@
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/MarkShawn2020.better-copy-path-with-lines?style=flat&label=VS%20Code%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
 [![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/MarkShawn2020.better-copy-path-with-lines?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
 [![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/MarkShawn2020.better-copy-path-with-lines?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
-[![GitHub](https://img.shields.io/github/license/MarkShawn2020/copy-path-with-line-number?style=flat)](https://github.com/MarkShawn2020/copy-path-with-line-number/blob/main/LICENSE.md)
+[![GitHub](https://img.shields.io/github/license/MarkShawn2020/better-copy-path-with-lines?style=flat)](https://github.com/MarkShawn2020/better-copy-path-with-lines/blob/main/LICENSE.md)
 
 > 🚀 一键复制带行号的文件路径的 VSCode 扩展 | [English Docs](./README.md)
 
@@ -85,14 +85,14 @@ code --install-extension MarkShawn2020.better-copy-path-with-lines
 
 ### 从 GitHub Release 安装
 
-1. 从 [Releases](https://github.com/MarkShawn2020/copy-path-with-line-number/releases) 下载最新的 `.vsix`
+1. 从 [Releases](https://github.com/MarkShawn2020/better-copy-path-with-lines/releases) 下载最新的 `.vsix`
 2. 在 VSCode 中：`扩展` → `...` → `从 VSIX 安装`
 
 ### 从源码安装
 
 ```bash
-git clone https://github.com/MarkShawn2020/copy-path-with-line-number.git
-cd copy-path-with-line-number
+git clone https://github.com/MarkShawn2020/better-copy-path-with-lines.git
+cd better-copy-path-with-lines
 npm install
 npm run compile
 # 按 F5 启动扩展开发主机
@@ -175,7 +175,7 @@ npm run compile
 
 ## 🐛 已知问题
 
-目前无。报告问题请访问：https://github.com/MarkShawn2020/copy-path-with-line-number/issues
+目前无。报告问题请访问：https://github.com/MarkShawn2020/better-copy-path-with-lines/issues
 
 ## 🤝 贡献
 
