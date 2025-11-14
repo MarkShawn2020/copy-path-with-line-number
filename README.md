@@ -1,278 +1,149 @@
 # Better Copy Path with Lines
 
+**Copy file paths with line numbers in one click** - Perfect for code reviews, bug reports, and team collaboration.
+
 [![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/MarkShawn2020.better-copy-path-with-lines?style=flat&label=VS%20Code&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
 [![Open VSX](https://img.shields.io/open-vsx/v/MarkShawn2020/better-copy-path-with-lines?style=flat&label=Open%20VSX&logo=eclipse)](https://open-vsx.org/extension/MarkShawn2020/better-copy-path-with-lines)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/MarkShawn2020.better-copy-path-with-lines?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
-[![Rating](https://img.shields.io/visual-studio-marketplace/r/MarkShawn2020.better-copy-path-with-lines?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
-[![License](https://img.shields.io/github/license/MarkShawn2020/better-copy-path-with-lines?style=flat)](https://github.com/MarkShawn2020/better-copy-path-with-lines/blob/main/LICENSE.md)
+[![Downloads](https://img.shields.io/visual-studio-marketplace/i/MarkShawn2020.better-copy-path-with-lines?style=flat&label=downloads)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
+[![Rating](https://img.shields.io/visual-studio-marketplace/r/MarkShawn2020.better-copy-path-with-lines?style=flat&label=rating)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
 
-> 🚀 VSCode extension for copying file paths with line numbers | [中文文档](./README_ZH.md)
+[English](#) • [中文文档](./README_ZH.md)
 
-## 💡 What is This?
+## ⚡ Quick Demo
 
-A VSCode extension that copies file paths **with line numbers** in a single click. Perfect for:
-- 📝 Sharing code references in GitHub issues/PRs
-- 💬 Discussing specific code lines in Slack/Teams
-- 📚 Writing documentation with precise code locations
-- 🐛 Reporting bugs with exact line numbers
+Right-click in the line number area or editor → Get `src/app.ts:42` instantly.
+
+```
+src/components/Button.tsx:42        ← Single line
+src/utils/helper.ts:10-20           ← Line range
+src/api/client.ts:5, 15, 25         ← Multiple selections
+```
+
+**Use cases:**
+- 📝 GitHub issues/PRs - Share precise code locations
+- 💬 Team chat - Reference specific lines in discussions
+- 📚 Documentation - Link to exact code sections
+- 🐛 Bug reports - Point to problematic lines
 
 ## ✨ Features
 
-**Quick Copy from Anywhere**
-- Right-click in **line number area** → Get `src/app.ts:42`
+### 🎯 Three Ways to Copy
 
-![alt text](./images/copy-filepath-with-line-number_gutter.gif)
+**1. Line Number Gutter** (most common)
 
-- Right-click in **editor** → Get path with current line
+![Line number gutter context menu](./images/copy-filepath-with-line-number_gutter.gif)
 
-![alt text](./images/copy-filepath-with-line-number_non-selected.gif)
+**2. Editor Area** (current cursor position)
 
-- Works with **single line**, **range** (`10-20`), or **multiple selections** (`5, 10, 15`)
+![Editor context menu](./images/copy-filepath-with-line-number_non-selected.gif)
 
-![alt text](./images/copy-filepath-with-line-number_selected.gif)
-**Two Formats**
-- 📂 **Relative Path**: `src/components/Button.tsx:42`
-- 📁 **Absolute Path**: `/Users/me/project/src/components/Button.tsx:42`
+**3. Multi-Selection** (ranges and multiple lines)
 
-**Customizable**
-- 🔧 Path separator: `/` or `\` or system default
-- 🔧 Range connector: `-` or `~` (e.g., `10-20` vs `10~20`)
-- 🔧 Selection separator: `,` or `;` or space
+![Multi-line selection](./images/copy-filepath-with-line-number_selected.gif)
 
-## 🎯 Why This Fork?
+### 📋 Output Formats
 
-> This is an **enhanced fork** of [qishan233/copy-path-with-line-number](https://github.com/qishan233/copy-path-with-line-number)
+| Format | Example | Use Case |
+|--------|---------|----------|
+| **Relative** | `src/Button.tsx:42` | GitHub, team collaboration |
+| **Absolute** | `/Users/me/project/src/Button.tsx:42` | Local references |
+| **Range** | `src/utils.ts:10-20` | Code blocks |
+| **Multiple** | `src/api.ts:5, 15, 25` | Scattered references |
 
-### ✨ Key Improvements
+### ⚙️ Customizable Settings
 
-| Feature | Original | This Fork |
-|---------|----------|-----------|
-| **Menu Speed** | 3 clicks (submenu) | **2 clicks** (direct) |
-| **Menu Options** | 4 options | **2 focused options** |
-| **Line Gutter** | ❌ Broken | **✅ Working** |
-| **Command Format** | Verbose labels | **Clean `Path:Line` format** |
-| **Focus** | Mixed features | **Line numbers only** |
-
-### 🚀 What's Different
-
-**Speed & Simplicity**
-- ⚡ **33% faster** - Removed submenus for direct access
-- 🧠 **50% less cognitive load** - Only 2 relevant options
-- 🎯 **Clear focus** - Line number context is the core value
-
-**Fixed Critical Issues**
-- ✅ **Line number gutter now works** - Fixed VSCode API handling
-- ✅ **Cleaner UX** - Removed redundant non-line commands (use VSCode's native "Copy Path" instead)
-
-**Better Design**
-- 📝 Commands use clean format: `Copy Relative Path:Line` / `Copy Absolute Path:Line`
-- 🎨 Appears only in relevant contexts (editor & line gutter)
-- 🔧 Same powerful configuration options (separators, connectors, etc.)
-
-## 📥 Installation
-
-### Option 1: VS Code Marketplace (Recommended)
-
-1. Open VSCode
-2. Go to Extensions (`Ctrl+Shift+X` / `Cmd+Shift+X`)
-3. Search for "Better Copy Path with Lines"
-4. Click Install
-
-**Or install via CLI:**
-```bash
-code --install-extension MarkShawn2020.better-copy-path-with-lines
-```
-
-### Option 2: Open VSX Registry
-
-For VSCodium, Code-OSS, or other VS Code compatible editors:
-
-```bash
-# VSCodium
-codium --install-extension MarkShawn2020.better-copy-path-with-lines
-
-# Or download from https://open-vsx.org/extension/MarkShawn2020/better-copy-path-with-lines
-```
-
-### Option 3: Manual Installation
-
-1. Download the latest `.vsix` from [GitHub Releases](https://github.com/MarkShawn2020/better-copy-path-with-lines/releases)
-2. In VSCode: `Extensions` → `...` → `Install from VSIX`
-
-### Option 4: From Source
-
-```bash
-git clone https://github.com/MarkShawn2020/better-copy-path-with-lines.git
-cd better-copy-path-with-lines
-npm install
-npm run compile
-# Press F5 to launch Extension Development Host
-```
-
-## 🎬 Usage
-
-### Quick Start
-
-**Right-click in line number area or editor:**
-
-```
-└─ Copy Relative Path:Line     → src/app.ts:42
-└─ Copy Absolute Path:Line     → /Users/me/project/src/app.ts:42
-```
-
-**Multi-line selection:**
-```
-Select lines 10-20 → Copy → src/app.ts:10-20
-Multiple selections → Copy → src/app.ts:5, 10, 15
-```
-
-### Configuration
-
-Customize separators and connectors in VSCode settings:
-
-```json
+```jsonc
 {
-  "copyPathWithLineNumber.path.separator": "slash",      // "/" or "\" or "system"
-  "copyPathWithLineNumber.range.connector": "dash",      // "-" or "~"
-  "copyPathWithLineNumber.selection.separator": "comma", // "," or ";" or " "
+  "copyPathWithLineNumber.path.separator": "slash",      // "/" | "\" | "system"
+  "copyPathWithLineNumber.range.connector": "dash",      // "-" | "~"
+  "copyPathWithLineNumber.selection.separator": "comma", // "," | ";" | " "
   "copyPathWithLineNumber.show.message": true            // Show notification
 }
 ```
 
-**Examples:**
-```
-Default:     src/components/Button.tsx:42-55
-With tilde:  src/components/Button.tsx:42~55
-With space:  src/components/Button.tsx:10 20 30
-```
+## 📥 Installation
 
-## 🔄 Comparison with Original
-
-For a complete feature list of the original extension, see the [original repository](https://github.com/qishan233/copy-path-with-line-number).
-
-**What we kept:**
-- ✅ Line number copying with ranges
-- ✅ Custom separators and connectors
-- ✅ Multi-line selection support
-- ✅ i18n (English & Chinese)
-
-**What we changed:**
-- 🎯 **Removed**: Non-line commands (explorer/tab contexts) - use VSCode's native "Copy Path"
-- 🎯 **Removed**: Submenus - direct command access
-- 🎯 **Fixed**: Line number gutter context menu
-- 🎯 **Simplified**: Command labels to `Path:Line` format
-
-## 📊 Technical Details
-
-### Architecture Highlights
-
-- **Pattern**: Decorator + Strategy + Command
-- **Type Safety**: Full TypeScript with strict mode
-- **Performance**: Zero dependencies (except VSCode API)
-- **Size**: ~194 KB packaged
-
-### Key Technical Improvements
-
-**v0.1.2** - Fixed VSCode line number context API
-```typescript
-// VSCode passes {lineNumber: number, uri: Uri} from gutter
-// Added proper detection and extraction
+**VS Code** (Marketplace)
+```bash
+code --install-extension MarkShawn2020.better-copy-path-with-lines
 ```
 
-**v0.1.1** - Focused refactoring
-- Removed 2 commands (kept only line-enabled)
-- Flattened menu structure
-- Simplified all code paths
+**VSCodium** (Open VSX)
+```bash
+codium --install-extension MarkShawn2020.better-copy-path-with-lines
+```
 
-## 🐛 Known Issues
+Or search "Better Copy Path with Lines" in the Extensions panel (`Ctrl+Shift+X` / `Cmd+Shift+X`)
 
-None currently. Report issues at: https://github.com/MarkShawn2020/better-copy-path-with-lines/issues
+## 🎯 Why This Fork?
+
+Enhanced fork of [qishan233/copy-path-with-line-number](https://github.com/qishan233/copy-path-with-line-number) with critical fixes and UX improvements.
+
+| Aspect | Original | This Fork |
+|--------|----------|-----------|
+| Line gutter | ❌ Broken | ✅ **Fixed** |
+| Menu clicks | 3 (submenu) | **2 (direct)** |
+| Commands | 4 mixed options | **2 focused** |
+| Performance | Baseline | **33% faster** |
+
+**Key improvements:** Fixed VSCode line number API · Removed submenus · Simplified labels · Automated releases
 
 ## 🤝 Contributing
 
-Contributions welcome! This project uses automated releases via [Conventional Commits](https://www.conventionalcommits.org/).
+Uses automated releases via [Conventional Commits](https://www.conventionalcommits.org/). Push `feat:` or `fix:` commits to trigger auto-publish to both marketplaces.
 
-**Quick Start:**
 ```bash
-# Feature (triggers 0.1.4 → 0.2.0)
-git commit -m "feat: add new feature"
-
-# Bug fix (triggers 0.1.4 → 0.1.5)
-git commit -m "fix: resolve bug"
+git commit -m "feat: new feature"  # → 0.2.0 → 0.3.0
+git commit -m "fix: bug fix"       # → 0.2.0 → 0.2.1
+git push  # Automatically publishes to VS Code & Open VSX
 ```
 
-**Pushing to `main` automatically:**
-- ✅ Analyzes commits
-- ✅ Bumps version
-- ✅ Publishes to VS Code Marketplace & Open VSX
-- ✅ Creates GitHub release
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 
-**See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.**
+## 🐛 Issues & Support
 
-We prioritize:
-1. Speed and simplicity
-2. Line number context use cases
-3. Clean, maintainable code
-
-## 📜 License
-
-MIT License - Same as original project
-
-## 🙏 Credits
-
-- **Original Author**: [qishan233](https://github.com/qishan233/copy-path-with-line-number)
-- **Fork Maintainer**: [MarkShawn2020](https://github.com/MarkShawn2020)
-- **Improvements**: Focused refactoring + critical bug fixes
-
----
+Report bugs: [GitHub Issues](https://github.com/MarkShawn2020/better-copy-path-with-lines/issues)
 
 ## 📝 Release Notes
 
-See [CHANGELOG.md](./CHANGELOG.md) for complete release history.
+Latest: **v0.2.0** - [View Changelog](./CHANGELOG.md)
 
-### 0.2.0 (Latest)
+### v0.2.0 - Automated Release Pipeline
 
-**🚀 Automated Release Pipeline**
-- Implemented semantic-release for automated versioning and publishing
-- Added Open VSX Registry support alongside VS Code Marketplace
-- Auto-generated CHANGELOG from conventional commits
-- GitHub Actions workflow for CI/CD
+- ✅ Dual marketplace publishing (VS Code + Open VSX)
+- ✅ Auto-versioning with semantic-release
+- ✅ Auto-generated CHANGELOG
+- ✅ GitHub Actions CI/CD workflow
 
-**🔧 Infrastructure**
-- Fixed release workflow authentication issues
-- Added comprehensive troubleshooting documentation
-- Created publish script with graceful token handling
+### v0.1.3 - Improved Defaults
 
-### 0.1.3
+- Changed range connector to `-` (industry standard)
+- Better compatibility with GitHub/GitLab
 
-**⚡ Improved Defaults**
-- Changed default range connector from `~` to `-` (industry standard: `10-20` instead of `10~20`)
-- Matches GitHub, GitLab, grep, and most developer tools
-- Easier to type (no Shift key needed)
-- `~` still available as configuration option
+### v0.1.2 - Critical Fix
 
-### 0.1.2
+- Fixed line number gutter context menu
+- Improved VSCode API handling
 
-**🐛 Critical Bug Fix**
-- Fixed line number gutter context menu (VSCode API `{lineNumber, uri}` handling)
-- Removed debug logging
-
-### 0.1.1
-
-**🚀 Major Refactoring**
-- Removed non-line commands (use VSCode native "Copy Path")
-- Flattened menu structure (2 clicks vs 3)
-- Simplified labels to `Path:Line` format
-- Only show in editor & line gutter contexts
-
-### 0.1.0
-
-- Added line number gutter support
-
-### Earlier Versions
-
-See [original repository](https://github.com/qishan233/copy-path-with-line-number) for versions 0.0.1 - 0.0.7
+[View full changelog](./CHANGELOG.md)
 
 ---
 
+## 📜 License
+
+MIT License
+
+## 🙏 Credits
+
+**Fork of:** [qishan233/copy-path-with-line-number](https://github.com/qishan233/copy-path-with-line-number)
+**Maintainer:** [MarkShawn2020](https://github.com/MarkShawn2020)
+
+---
+
+<div align="center">
+
 **Made with ❤️ for developers who share code references frequently**
+
+[⬆ Back to top](#better-copy-path-with-lines)
+
+</div>
