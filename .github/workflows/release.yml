@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: false
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -68,4 +68,12 @@ jobs:
           GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
           GIT_COMMITTER_NAME: github-actions[bot]
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
-        run: npx semantic-release
+        run: |
+          echo "🚀 Starting semantic-release..."
+          echo "📋 Current version: $(node -p "require('./package.json').version")"
+          echo "🔑 Token status:"
+          echo "  - GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN != '' && '✅ Set' || '❌ Not set' }}"
+          echo "  - VSCE_PAT: ${{ secrets.VSCE_PAT != '' && '✅ Set' || '⚠️  Not set (will skip VS Code publish)' }}"
+          echo "  - OVSX_PAT: ${{ secrets.OVSX_PAT != '' && '✅ Set' || '⚠️  Not set (will skip Open VSX publish)' }}"
+          echo ""
+          npx semantic-release
