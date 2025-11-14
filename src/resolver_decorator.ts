@@ -6,8 +6,8 @@ import {
 import path from "path";
 
 interface IUriResolver {
-    GetPath(uri: Uri): string;
-    GetPaths(uri: Uri): Promise<string[]>;
+    GetPath(uri: Uri | any): string;
+    GetPaths(uri: Uri | any): Promise<string[]>;
 }
 
 interface UriResolverDecorator extends IUriResolver {
@@ -15,7 +15,12 @@ interface UriResolverDecorator extends IUriResolver {
 
 
 class UriResolver implements IUriResolver {
-    GetPath(uri: Uri): string {
+    GetPath(uri: Uri | any): string {
+        // Handle line number context: VSCode passes {lineNumber: number, uri: Uri}
+        if (uri && typeof uri === 'object' && 'uri' in uri && 'lineNumber' in uri) {
+            uri = uri.uri;
+        }
+
         if (uri === undefined) {
             if (window.activeTextEditor) {
                 uri = window.activeTextEditor.document.uri;
@@ -26,7 +31,12 @@ class UriResolver implements IUriResolver {
 
         return uri.fsPath;
     }
-    async GetPaths(uri: Uri): Promise<string[]> {
+    async GetPaths(uri: Uri | any): Promise<string[]> {
+        // Handle line number context: VSCode passes {lineNumber: number, uri: Uri}
+        if (uri && typeof uri === 'object' && 'uri' in uri && 'lineNumber' in uri) {
+            uri = uri.uri;
+        }
+
         await env.clipboard.writeText('');
 
         await commands.executeCommand("copyFilePath", uri);
@@ -48,14 +58,33 @@ class RelativeUriResolver implements UriResolverDecorator {
         this.pathSeparatorStrategy = symbolStrategyFactory.GetPathSeparatorStrategy();
         this.uriResolver = UriResolver;
     }
-    GetPath(uri: Uri): string {
+    GetPath(uri: Uri | any): string {
         var p = this.uriResolver.GetPath(uri);
 
-        return workspace.asRelativePath(p).replace(/\//g, this.pathSeparatorStrategy.GetSymbol());
+        const relativePath = workspace.asRelativePath(p);
+
+        // asRelativePath can return string | RelativePattern
+        let pathStr: string;
+        if (typeof relativePath === 'string') {
+            pathStr = relativePath;
+            // If asRelativePath returns empty string, use original path
+            if (!pathStr || pathStr.length === 0) {
+                pathStr = p;
+            }
+        } else {
+            // RelativePattern case - use original path
+            pathStr = p;
+        }
+
+        return pathStr.replace(/\//g, this.pathSeparatorStrategy.GetSymbol());
     }
-    async GetPaths(uri: Uri): Promise<string[]> {
+    async GetPaths(uri: Uri | any): Promise<string[]> {
         var paths = await this.uriResolver.GetPaths(uri);
-        return paths.map(p => workspace.asRelativePath(p).replace(/\//g, this.pathSeparatorStrategy.GetSymbol()));
+        return paths.map(p => {
+            const relativePath = workspace.asRelativePath(p);
+            const pathStr = typeof relativePath === 'string' ? relativePath : p;
+            return pathStr.replace(/\//g, this.pathSeparatorStrategy.GetSymbol());
+        });
     }
 }
 
@@ -66,7 +95,7 @@ class AbsoluteUriResolver implements UriResolverDecorator {
         this.uriResolver = UriResolver;
         this.pathSeparatorStrategy = symbolStrategyFactory.GetPathSeparatorStrategy();
     }
-    GetPath(uri: Uri): string {
+    GetPath(uri: Uri | any): string {
         var content = this.uriResolver.GetPath(uri);
 
         var targetSep = this.pathSeparatorStrategy.GetSymbol();
@@ -75,7 +104,7 @@ class AbsoluteUriResolver implements UriResolverDecorator {
 
         return content;
     }
-    async GetPaths(uri: Uri): Promise<string[]> {
+    async GetPaths(uri: Uri | any): Promise<string[]> {
         var paths = await this.uriResolver.GetPaths(uri);
         var targetSep = this.pathSeparatorStrategy.GetSymbol();
         return paths.map(p => p.replace(new RegExp(path.sep.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), targetSep));

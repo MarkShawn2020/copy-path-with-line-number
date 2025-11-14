@@ -1,12 +1,17 @@
 import { Uri, window, workspace, env } from 'vscode';
 import { UriResolverFactory, LineInfoMakerFactory, IUriResolver, ILineInfoMaker } from './resolver_decorator';
 
-async function DoCopy(command: CopyCommandType, uri: Uri) {
+async function DoCopy(command: CopyCommandType, uri: Uri | any) {
 
     try {
         var content = await GetCopyContent(command, uri);
+
+        if (!content || content.trim().length === 0) {
+            window.showErrorMessage('Failed to copy: generated content is empty');
+            return;
+        }
     } catch (error: any) {
-        window.showErrorMessage(error.message);
+        window.showErrorMessage('Failed to copy path: ' + error.message);
         return;
     }
 
@@ -53,7 +58,7 @@ class ConcreteCopyCommand implements Command {
         }
     }
 
-    async Execute(uri: Uri): Promise<string> {
+    async Execute(uri: Uri | any): Promise<string> {
         if (this.needLineInfo && this.lineInfoMaker !== null) {
             let res = this.getPath(uri);
             res += ":" + this.lineInfoMaker.GetLineInfo();
@@ -63,11 +68,11 @@ class ConcreteCopyCommand implements Command {
         return this.getPaths(uri);
     }
 
-    getPath(uri: Uri): string {
+    getPath(uri: Uri | any): string {
         return this.uriResolver.GetPath(uri);
     }
 
-    async getPaths(uri: Uri): Promise<string> {
+    async getPaths(uri: Uri | any): Promise<string> {
         var res = await this.uriResolver.GetPaths(uri);
 
         return res.join('\n');
@@ -80,7 +85,7 @@ const CommandContainer = new Map<CopyCommandType, Command>([
 ]);
 
 
-async function GetCopyContent(commandType: CopyCommandType, uri: Uri): Promise<string> {
+async function GetCopyContent(commandType: CopyCommandType, uri: Uri | any): Promise<string> {
     var command = CommandContainer.get(commandType);
     if (command === undefined) {
         return "not supported command";
@@ -91,7 +96,7 @@ async function GetCopyContent(commandType: CopyCommandType, uri: Uri): Promise<s
 }
 
 interface Command {
-    Execute(uri: Uri): Promise<string>;
+    Execute(uri: Uri | any): Promise<string>;
 }
 
 

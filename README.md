@@ -36,6 +36,12 @@ It also supports Chinese and English(need reload window to active the effect aft
 
 ## Release Notes
 
+### 0.1.2
+
+**Critical Bug Fix**:
+- Fixed line number gutter context menu not working (VSCode passes `{lineNumber, uri}` object from gutter)
+- Added proper handling for VSCode's line number context menu API
+
 ### 0.1.1
 
 **Major Refactoring - Focused on Core Value**:
