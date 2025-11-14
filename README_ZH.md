@@ -1,8 +1,8 @@
 # 复制路径和行号
 
-[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/MarkShawn2020.better-copy-path-with-line?style=flat&label=VS%20Code%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-line)
-[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/MarkShawn2020.better-copy-path-with-line?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-line)
-[![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/MarkShawn2020.better-copy-path-with-line?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-line)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/MarkShawn2020.better-copy-path-with-lines?style=flat&label=VS%20Code%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/MarkShawn2020.better-copy-path-with-lines?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
+[![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/MarkShawn2020.better-copy-path-with-lines?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
 [![GitHub](https://img.shields.io/github/license/MarkShawn2020/copy-path-with-line-number?style=flat)](https://github.com/MarkShawn2020/copy-path-with-line-number/blob/main/LICENSE.md)
 
 > 🚀 一键复制带行号的文件路径的 VSCode 扩展 | [English Docs](./README.md)
@@ -80,7 +80,7 @@
 
 或通过命令行安装:
 ```bash
-code --install-extension MarkShawn2020.better-copy-path-with-line
+code --install-extension MarkShawn2020.better-copy-path-with-lines
 ```
 
 ### 从 GitHub Release 安装

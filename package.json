@@ -1,5 +1,5 @@
 {
-  "name": "better-copy-path-with-line",
+  "name": "better-copy-path-with-lines",
   "displayName": "Copy Path:Line - Enhanced",
   "description": "Copy file paths with line numbers - Enhanced fork with faster UX and fixed line gutter support",
   "version": "0.1.3",

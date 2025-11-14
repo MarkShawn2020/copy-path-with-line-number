@@ -1,8 +1,8 @@
 # Copy Path with Line Number
 
-[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/MarkShawn2020.better-copy-path-with-line?style=flat&label=VS%20Code%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-line)
-[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/MarkShawn2020.better-copy-path-with-line?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-line)
-[![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/MarkShawn2020.better-copy-path-with-line?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-line)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/MarkShawn2020.better-copy-path-with-lines?style=flat&label=VS%20Code%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/MarkShawn2020.better-copy-path-with-lines?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
+[![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/MarkShawn2020.better-copy-path-with-lines?style=flat)](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
 [![GitHub](https://img.shields.io/github/license/MarkShawn2020/copy-path-with-line-number?style=flat)](https://github.com/MarkShawn2020/copy-path-with-line-number/blob/main/LICENSE.md)
 
 > 🚀 VSCode extension for copying file paths with line numbers | [中文文档](./README_ZH.md)
@@ -79,7 +79,7 @@ A VSCode extension that copies file paths **with line numbers** in a single clic
 
 Or install via command line:
 ```bash
-code --install-extension MarkShawn2020.better-copy-path-with-line
+code --install-extension MarkShawn2020.better-copy-path-with-lines
 ```
 
 ### From GitHub Release

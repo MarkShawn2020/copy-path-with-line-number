@@ -63,8 +63,8 @@ jobs:
             ## Installation
             Download the `.vsix` file below and install via:
             - VSCode: Extensions → `...` → Install from VSIX
-            - CLI: `code --install-extension better-copy-path-with-line-${{ steps.package-version.outputs.version }}.vsix`
+            - CLI: `code --install-extension better-copy-path-with-lines-${{ steps.package-version.outputs.version }}.vsix`
 
-            Or install from [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-line)
+            Or install from [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=MarkShawn2020.better-copy-path-with-lines)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
