@@ -228,7 +228,22 @@ MIT License - Same as original project
 
 ## 📝 Release Notes
 
-### 0.1.3 (Latest)
+See [CHANGELOG.md](./CHANGELOG.md) for complete release history.
+
+### 0.2.0 (Latest)
+
+**🚀 Automated Release Pipeline**
+- Implemented semantic-release for automated versioning and publishing
+- Added Open VSX Registry support alongside VS Code Marketplace
+- Auto-generated CHANGELOG from conventional commits
+- GitHub Actions workflow for CI/CD
+
+**🔧 Infrastructure**
+- Fixed release workflow authentication issues
+- Added comprehensive troubleshooting documentation
+- Created publish script with graceful token handling
+
+### 0.1.3
 
 **⚡ Improved Defaults**
 - Changed default range connector from `~` to `-` (industry standard: `10-20` instead of `10~20`)
