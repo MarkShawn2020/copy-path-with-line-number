@@ -5,8 +5,11 @@ src/**
 .gitignore
 .yarnrc
 .eslintrc.json
+.releaserc.json
 vsc-extension-quickstart.md
 PUBLISHING.md
+CONTRIBUTING.md
+GITHUB_SETUP.md
 **/tsconfig.json
 **/*.map
 **/*.ts

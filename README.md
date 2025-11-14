@@ -190,7 +190,26 @@ None currently. Report issues at: https://github.com/MarkShawn2020/better-copy-p
 
 ## 🤝 Contributing
 
-Contributions welcome! This is a focused fork - we prioritize:
+Contributions welcome! This project uses automated releases via [Conventional Commits](https://www.conventionalcommits.org/).
+
+**Quick Start:**
+```bash
+# Feature (triggers 0.1.4 → 0.2.0)
+git commit -m "feat: add new feature"
+
+# Bug fix (triggers 0.1.4 → 0.1.5)
+git commit -m "fix: resolve bug"
+```
+
+**Pushing to `main` automatically:**
+- ✅ Analyzes commits
+- ✅ Bumps version
+- ✅ Publishes to VS Code Marketplace & Open VSX
+- ✅ Creates GitHub release
+
+**See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.**
+
+We prioritize:
 1. Speed and simplicity
 2. Line number context use cases
 3. Clean, maintainable code

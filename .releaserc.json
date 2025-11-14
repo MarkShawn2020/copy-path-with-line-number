@@ -1,0 +1,44 @@
+{
+  "branches": ["main"],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "verifyConditionsCmd": "echo 'Checking VSCE_PAT...' && test -n \"${VSCE_PAT}\" && echo 'Checking OVSX_PAT...' && test -n \"${OVSX_PAT}\"",
+        "prepareCmd": "pnpm version ${nextRelease.version} --no-git-tag-version && pnpm run compile && pnpm run package"
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "publishCmd": "npx vsce publish --no-dependencies -p ${VSCE_PAT} && npx ovsx publish --no-dependencies -p ${OVSX_PAT}"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "*.vsix",
+            "label": "VSCode Extension Package"
+          }
+        ]
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["package.json", "pnpm-lock.yaml", "CHANGELOG.md"],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ]
+  ]
+}

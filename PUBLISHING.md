@@ -75,9 +75,48 @@ ovsx publish -p YOUR_OVSX_PAT
 
 ## Publishing Workflow
 
+> **⚠️ IMPORTANT**: This project uses **automated releases** via semantic-release.
+>
+> Releases are triggered automatically when you push commits with [Conventional Commit](https://www.conventionalcommits.org/) messages to `main`.
+
+### Automated Release (Recommended)
+
+Push commits with conventional format to trigger automatic releases:
+
+```bash
+# Feature (triggers 0.1.4 → 0.2.0)
+git commit -m "feat: add new feature"
+git push origin main
+
+# Bug fix (triggers 0.1.4 → 0.1.5)
+git commit -m "fix: resolve bug"
+git push origin main
+
+# Breaking change (triggers 0.1.4 → 1.0.0)
+git commit -m "feat: major refactor
+
+BREAKING CHANGE: API has changed"
+git push origin main
+```
+
+**What happens automatically:**
+1. ✅ Analyzes commits since last release
+2. ✅ Determines next version (MAJOR.MINOR.PATCH)
+3. ✅ Updates package.json version
+4. ✅ Generates CHANGELOG.md
+5. ✅ Builds and packages extension
+6. ✅ Publishes to VS Code Marketplace
+7. ✅ Publishes to Open VSX Registry
+8. ✅ Creates GitHub Release with .vsix
+9. ✅ Commits version bump back to repo
+
+**See [CONTRIBUTING.md](./CONTRIBUTING.md) for commit message conventions.**
+
+### Manual Publishing (Emergency Only)
+
 > **Note**: This project uses `pnpm`. All publish commands include `--no-dependencies` flag for pnpm compatibility.
 
-### Quick Commands
+If automated release fails, use manual commands:
 
 ```bash
 # Publish to VS Code Marketplace only
